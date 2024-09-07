@@ -1,8 +1,10 @@
 From ubuntu:latest
-Run apt-get -y update
-Run apt-get install -y apache2 curl
-EXPOSE 8080
+LABEL "AUTHOR"="SUDHAKAR"
+LABEL "PROJECT"="TO-DO-LIST"
+Run apt update && apt install git -y
+Run apt install apache2 -y
+EXPOSE 80
 WORKDIR /var/www/html
 copy index.html /var/www/html/index.html
-ENTRYPOINT ["/usr/sbin/apache2ctl"]
-CMD ["-D", "FOREGROUND"]
+//ENTRYPOINT ["/usr/sbin/apache2ctl"]
+CMD ["/usr/sbin/apache2ctl" , "-D", "FOREGROUND"]
